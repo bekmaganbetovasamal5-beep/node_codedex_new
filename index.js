@@ -1,11 +1,13 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const os = require('os');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+// Get OS type and convert 'Darwin' to 'macOS'
+let osType = os.type();
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+if (osType === 'Linux') {
+  osType = 'Fgr';
+}
+
+console.log(`Operating System: ${osType}`);
+console.log(`Platform: ${os.platform()}`);
+// Convert bytes to gigabytes
+console.log(`Total Memory: ${(os.totalmem() / 1e9).toFixed(2)} GB`);
